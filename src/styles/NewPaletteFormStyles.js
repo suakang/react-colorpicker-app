@@ -53,6 +53,11 @@ const styles = theme => ({
   },
   button: {
     width: "50%"
+  },
+  buttonClear: {
+    width: "100%",
+    marginTop: "1rem",
+    fontSize: "2rem"
   }
 });
 

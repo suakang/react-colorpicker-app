@@ -1,5 +1,4 @@
 import sizes from "./sizes";
-import bg from "./bg.svg";
 export default {
   "@global": {
     ".fade-exit": {
@@ -15,13 +14,20 @@ export default {
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
-    /* background by SVGBackgrounds.com */
-    backgroundColor: "#394bad",
-    backgroundImage: `url(${bg})`,
+    backgroundColor: "#2e4357",
     overflow: "scroll"
   },
   heading: {
     fontSize: "2rem"
+  },
+  instruction: {
+    color: "#fff", 
+    marginBottom: "1rem"
+  },
+  button: {
+    padding: "1rem",
+    backgroundColor: "#de4536",
+    textDecoration: "none",
   },
   container: {
     width: "50%",

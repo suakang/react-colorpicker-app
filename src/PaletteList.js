@@ -48,9 +48,19 @@ class PaletteList extends Component {
       <div className={classes.root}>
         <div className={classes.container}>
           <nav className={classes.nav}>
-            <h1 className={classes.heading}>React Colors</h1>
-            <Link to='/palette/new'>Create Palette</Link>
+            <h1 className={classes.heading}>React Color Picker App</h1>
+            <Link className={classes.button} to='/palette/new'>Create Palette</Link>
           </nav>
+          <div className={classes.instruction}>
+          <h4>This is a simple React color picker app only using class based component. Features include:</h4>
+          <ul>
+            <li>Create a new color palette</li>
+            <li>View the color palette collection</li>
+            <li>Delete the color palette</li>
+            <li>Copy the color info when click the box</li>
+            <li>Dropdown between HEX, RGB, RGBA</li>
+          </ul>
+          </div>
           <TransitionGroup className={classes.palettes}>
             {palettes.map(palette => (
               <CSSTransition key={palette.id} classNames='fade' timeout={500}>

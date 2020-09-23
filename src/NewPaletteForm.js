@@ -29,7 +29,6 @@ class NewPaletteForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.removeColor = this.removeColor.bind(this);
     this.clearColors = this.clearColors.bind(this);
-    this.addRandomColor = this.addRandomColor.bind(this);
   }
 
   handleDrawerOpen = () => {
@@ -54,20 +53,7 @@ class NewPaletteForm extends Component {
   clearColors() {
     this.setState({ colors: [] });
   }
-  addRandomColor() {
-    const allColors = this.props.palettes.map(p => p.colors).flat();
-    let rand;
-    let randomColor;
-    let isDuplicateColor = true;
-    while (isDuplicateColor) {
-      rand = Math.floor(Math.random() * allColors.length);
-      randomColor = allColors[rand];
-      isDuplicateColor = this.state.colors.some(
-        color => color.name === randomColor.name
-      );
-    }
-    this.setState({ colors: [...this.state.colors, randomColor] });
-  }
+
   handleSubmit(newPalette) {
     newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g, "-");
     newPalette.colors = this.state.colors;
@@ -115,32 +101,23 @@ class NewPaletteForm extends Component {
           <Divider />
           <div className={classes.container}>
             <Typography variant='h4' gutterBottom>
-              Design Your Palette
+              Pick Your Color
             </Typography>
             <div className={classes.buttons}>
-              <Button
-                variant='contained'
-                color='secondary'
-                onClick={this.clearColors}
-                className={classes.button}
-              >
-                Clear Palette
-              </Button>
-              <Button
-                variant='contained'
-                className={classes.button}
-                color='primary'
-                onClick={this.addRandomColor}
-                disabled={paletteIsFull}
-              >
-                Random Color
-              </Button>
             </div>
             <ColorPickerForm
               paletteIsFull={paletteIsFull}
               addNewColor={this.addNewColor}
               colors={colors}
             />
+            <Button
+            variant='contained'
+            color='secondary'
+            onClick={this.clearColors}
+            className={classes.buttonClear}
+          >
+            Clear Palette
+          </Button>
           </div>
         </Drawer>
         <main

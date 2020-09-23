@@ -22,7 +22,6 @@ class ColorBox extends Component {
       name,
       background,
       moreUrl,
-      showingFullPalette,
       classes
     } = this.props;
 
@@ -51,11 +50,6 @@ class ColorBox extends Component {
             </div>
             <button className={classes.copyButton}>Copy</button>
           </div>
-          {showingFullPalette && (
-            <Link to={moreUrl} onClick={e => e.stopPropagation()}>
-              <span className={classes.seeMore}>MORE</span>
-            </Link>
-          )}
         </div>
       </CopyToClipboard>
     );

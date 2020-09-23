@@ -30,11 +30,11 @@ class Navbar extends Component {
     return (
       <header className={classes.Navbar}>
         <div className={classes.logo}>
-          <Link to='/'>Color Picker App</Link>
+          <Link to='/'>&#8592; Go Back</Link>
         </div>
         {showingAllColors && (
           <div>
-            <span>Opacity Level: {level}</span>
+            <span>Adjust Opacity Level: {level}</span>
             <div className={classes.slider}>
               <Slider
                 defaultValue={level}
